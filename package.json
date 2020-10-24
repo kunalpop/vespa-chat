@@ -1,0 +1,40 @@
+{
+  "name": "vespa.chat",
+  "version": "1.0.0",
+  "description": "vespa chat with apis",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "kunal",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.2.0",
+    "browserify": "^17.0.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.5",
+    "crypto-js": "^4.0.0",
+    "express": "^4.17.1",
+    "express-back": "0.0.2",
+    "express-flash-messages": "^0.1.1",
+    "express-paginate": "^1.0.2",
+    "express-session": "^1.17.1",
+    "ip": "^1.1.5",
+    "localStorage": "^1.0.4",
+    "moment": "^2.29.1",
+    "mongodb": "^3.6.2",
+    "mongoose": "^5.10.7",
+    "mongoose-paginate": "^5.0.3",
+    "mongoose-unique-validator": "^2.0.3",
+    "node-datetime": "^2.1.2",
+    "nodemon": "^2.0.4",
+    "path": "^0.12.7",
+    "pug": "^3.0.0",
+    "scroll-js": "^3.3.0",
+    "socket.io": "^2.3.0",
+    "stripe": "^8.115.0",
+    "uuid": "^8.3.1"
+  },
+  "devDependencies": {}
+}
