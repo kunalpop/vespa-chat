@@ -1,0 +1,17 @@
+1) Indexing in database.
+2) Left side window. whatsapp/fb/etc.Active chats.
+3) store the chat information in db. 2 collections. 
+4) Room IDs with 2 users. 
+5) copy to cliboard js.(link with username) /D
+6) Payment.
+7) Error handling.
+
+
+//Terms
+Sharding, application servers, cache, microservices etc. 
+
+1) Payment session after paying validation. (read more into the stripe link/webhooks) 
+2) Room no: timestamp => unique identifier/object_id/timestamp/user_timestamp
+3) Number of active chats on the left side. (percentage width) | Number of unread messages | remove horizontal scroll
+4) Aditya | Design changes in share-link, design review.  
+5) Messaging page area formatting
