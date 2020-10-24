@@ -1,0 +1,67 @@
+doctype transitional
+html(xmlns="http://www.w3.org/1999/xhtml")
+  head
+    meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+    title Share Profile
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet")
+    link(rel="stylesheet" href="static/css/home-style.css" type="text/css")
+    script.
+      function CopyToClipboard() {
+        containerid = "link"
+        if (document.selection) {
+          var range = document.body.createTextRange();
+          range.moveToElementText(document.getElementById(containerid))
+          range.select().createTextRange()
+          document.execCommand("copy");
+        } else if (window.getSelection) {
+          var range = document.createRange()
+          range.selectNode(document.getElementById(containerid))
+          window.getSelection().addRange(range)
+          document.execCommand("copy")
+          alert("The link has been copied to clipboard")
+        }
+      }
+  body
+    .header
+      .inr_container
+        .logosec
+          img(src="static/img/logo.svg" alt="Logo")
+          img(src="static/img/Vespa.chat.svg" alt="Logo")
+        .fltr.dis-n
+          a.toptxt.current(href=`share-profile-link`)
+            | Share Link 
+            span  
+          a.toptxt(href=`message?username=${username}&room=${room}`)
+            | Messages 
+            span  
+          a.toptxt(href=`profile/${username}`)
+            | Profile 
+            span  
+    .wrap_btm
+      .clip
+      .clip2
+      .clip3
+      .clip4
+      .clip5
+      .clip6
+      .clip7
+      .clip8
+      .inr_main.t_center
+        img(src="static/img/chat-bubble.svg")
+        br
+        img.mgt14(src="static/img/vespa-chat-grd.svg")
+        .quote
+          span.opnquote “
+          | Share Vespa.chat profile as a link with your friends :) 
+          span.clsquote ”
+        .copycd
+          span.ftn15(id="link") #{link}
+          img(src="static/img/copy-icon.svg" type="button" style="vertical-align: sub;cursor: pointer" onclick="CopyToClipboard()")
+        .socilapnl
+          a.icn-wht
+          a.icn-fbk
+          a.icn-twi
+          a.icn-ins
+    .footer.t_center.dis-n
+      p.ftrtxt2 © 2020 Vespa.chat | All rights reserved

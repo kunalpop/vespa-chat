@@ -1,0 +1,154 @@
+doctype transitional
+html(xmlns="http://www.w3.org/1999/xhtml")
+  head
+    meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+    title Profile
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet")
+    link(rel="stylesheet" href="/static/css/home-style.css" type="text/css")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+    script(defer="" src="/static/js/profile_.js")
+  body
+    .header
+      .inr_container
+        .logosec
+          img(src="/static/img/logo.svg" alt="Logo")
+          img(src="/static/img/Vespa.chat.svg" alt="Logo")
+        .fltr.dis-n
+          a.toptxt(href=`../share-profile-link`)
+            | Share Link 
+            span  
+          a.toptxt(href=`../message?username=${username}&room=${room}`)
+            | Messages 
+            span  
+          a.toptxt.current(href=`../profile/${username}`)
+            | Profile 
+            span  
+    .wrap_btm
+      .left_sec_2
+        .leftmenu
+          p.menuhd Profile
+          ul.topmenu
+            li#shwacbx.m_active Account Information
+            li#shwpd Password
+            li#shwpay Payments
+            li#shwrmv Remove Account
+            li#shwlog Logout
+      .right_sec_2
+        #acinfo.leftmenu.wid60_2.pd20
+          .rithd Account Information
+          .wid30.fltl.ftn_16 Username
+          .wid60.fltl
+            input.inptbx_1(type="text" value=username readonly="readonly")
+        #psBox.leftmenu.wid60_2.pd20(style="display:none")
+          form(name="chngPwd" action=`../profile/${username}` method="POST" autocomplete="on")
+            .rithd Password
+            .wid30.fltl.ftn_16 Current Password
+            .wid60.fltl
+              input.inptbx_1(type="text" value=passwd name="pwd" id="pwd")
+            .hgt25
+            .wid30.fltl.ftn_16 New Password
+            .wid60.fltl
+              input.inptbx_1(type="password" value="password12345" name="npwd" id="npwd")
+            .hgt25
+            .wid30.fltl.ftn_16(style="line-height: 20px;")
+              | New Password 
+              br
+              | Confirmation
+            .wid60.fltl
+              input.inptbx_1(type="password" value="password12345" name="cnpwd" id="cnpwd")
+            .hgt25
+              button(type="submit" style="cursor: pointer;display:table;width: 124px;height: 48px;background: #FFFFFF;box-shadow: 0px 0px 5px rgba(115, 115, 115, 0.25);border-radius: 50px;font-weight: 500;font-size: 14px;line-height: 48px;color: #6E79FE;text-align: center;text-decoration: none;margin:0 auto") Change
+        #payBx.leftmenu.wid60_2.pd20(style="display:none")
+          .rithd Payments
+          .pmntBnr
+            .inrtxt
+              span.pyicn
+              span.pytext
+                | $ 3/week
+                br
+                | Start private chat with users
+          .whtBx(style="display:none")
+            p.fltl.paidfnt Started private chat with users
+            .fltr
+              p.fnt12.pdb8
+                strong Ends in :
+                span.red 4 Days
+              p.fnt12
+                strong Paid On:
+                span.blue 24th May 2020
+          a.chngbtn(style="cursor: pointer" type="button" href="/checkout") Pay Now
+        #rmvbx.leftmenu.wid60_2.pd20(style="display:none")
+          .rithd Remove Account
+          p.ftn_16.t_center You can choose to stop receiving Anonymous Messages.
+          a.rmvbtn(href="/remove" style="cursor: pointer" type="button" method="delete") Remove Account
+        #logbx.leftmenu.wid60_2.pd20(style="display:none")
+          .rithd Logout
+          p.ftn_16
+            | Are you sure, you want to logout Vespa.chat? You will automatically stop recieving anonymous messages.
+          a.logbtn2(href="/logout" style="cursor: pointer" type="button") Logout
+    .footer.t_center
+      p.ftrtxt2 Â© 2020 Vespa.chat | All rights reserved
+    script.
+      $(document).ready(function(){
+      $("#shwpd").click(function(){
+      $("#psBox").show();
+      $("#acinfo").hide();
+      $("#payBx").hide();
+      $("#rmvbx").hide();
+      $("#logbx").hide();
+      $("#shwpd").addClass('m_active');
+      $("#shwacbx").removeClass('m_active');
+      $("#shwpay").removeClass('m_active');
+      $("#shwrmv").removeClass('m_active');
+      $("#shwlog").removeClass('m_active');
+      });
+      $("#shwacbx").click(function(){
+      $("#psBox").hide();
+      $("#acinfo").show();
+      $("#payBx").hide();
+      $("#rmvbx").hide();
+      $("#logbx").hide();
+      $("#shwacbx").addClass('m_active');
+      $("#shwpd").removeClass('m_active');
+      $("#shwpay").removeClass('m_active');
+      $("#shwrmv").removeClass('m_active');
+      $("#shwlog").removeClass('m_active');
+      });
+      $("#shwpay").click(function(){
+      $("#psBox").hide();
+      $("#acinfo").hide();
+      $("#payBx").show();
+      $("#rmvbx").hide();
+      $("#logbx").hide();
+      $("#shwacbx").removeClass('m_active');
+      $("#shwpd").removeClass('m_active');
+      $("#shwpay").addClass('m_active');
+      $("#shwrmv").removeClass('m_active');
+      $("#shwlog").removeClass('m_active');
+      });
+      $("#shwrmv").click(function(){
+      $("#psBox").hide();
+      $("#acinfo").hide();
+      $("#payBx").hide();
+      $("#rmvbx").show();
+      $("#logbx").hide();
+      $("#shwacbx").removeClass('m_active');
+      $("#shwpd").removeClass('m_active');
+      $("#shwpay").removeClass('m_active');
+      $("#shwrmv").addClass('m_active');
+      $("#shwlog").removeClass('m_active');
+      });
+      $("#shwlog").click(function(){
+      $("#psBox").hide();
+      $("#acinfo").hide();
+      $("#payBx").hide();
+      $("#rmvbx").hide();
+      $("#logbx").show();
+      $("#shwacbx").removeClass('m_active');
+      $("#shwpd").removeClass('m_active');
+      $("#shwpay").removeClass('m_active');
+      $("#shwrmv").removeClass('m_active');
+      $("#shwlog").addClass('m_active');
+      });
+      });

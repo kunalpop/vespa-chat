@@ -1,0 +1,143 @@
+doctype transitional
+html(xmlns="http://www.w3.org/1999/xhtml")
+  head
+    meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+    title Message
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet")
+    link(rel="stylesheet" href="static/css/home-style.css" type="text/css")
+    script(defer="" src="/socket.io/socket.io.js")
+    script(defer="" src="/static/js/client.js")
+    script.
+      window.onload=function () {
+        var objDiv = document.getElementById("chat-window")
+        objDiv.scrollTop = objDiv.scrollHeight;
+      }
+    .header
+      .inr_container
+        .logosec
+          img(src="/static/img/logo.svg" alt="Logo")
+          img(src="/static/img/Vespa.chat.svg" alt="Logo")
+        .fltr.dis-n
+          a.toptxt(href=`share-profile-link`)
+            | Share Link 
+            span  
+          a.toptxt.current(href=`message?username=${username}&room=${room}`)
+            | Messages 
+            span  
+          a.toptxt(href=`profile/${username}`)
+            | Profile 
+            span  
+    .wrap_btm
+      .left_sec
+        .anonymous Active Chats
+        //
+          <div class="nomsg_sec">
+          <img src="img/blank-msg-icon.svg" alt="No Message" />
+          <p class="nomsgtxt">You don’t have any messages yet.</p>
+          </div>
+        .vscroll
+          ul.people
+            li.person(data-chat="person1")
+              span.imgcol.blue-bg
+                img(src="static/img/user-avtar.svg" alt="")
+              span.name #{username}
+              span.time #{time1}
+              i.ttlno4 1
+              span.preview in room: #{room}         
+            li.person(data-chat="person2")
+              span.imgcol.red-bg
+                img(src="static/img/user-avtar.svg" alt="")
+              span.name Anonymous User
+              span.time #{time2}
+              i.ttlno4 2
+              span.preview in room: #{room}              
+      .right_sec
+        //
+          <div class="inr_main t_center">
+          <img src="img/chat-bubble.svg" /><br />
+          <img src="img/vespa-chat-grd.svg" class="mgt14" />
+          <div class="quote">
+          <span class="opnquote">“</span>Share Vespa.chat profile as a link with your friends :) <span class="clsquote">”</span>
+          </div>
+          <div class="copycd"><span class="ftn15">Vespa.chat/creator_2020</span> <img src="img/copy-icon.svg" style="vertical-align: sub;" /></div>
+          <div class="socilapnl">
+          <a class="icn-wht"></a>
+          <a class="icn-fbk"></a>
+          <a class="icn-twi"></a>
+          <a class="icn-ins"></a>
+          </div>
+          </div>
+        .chat
+          .conversation-start  
+            span #{date} 
+          .midscroll(id="chat-window")
+            each post in chats
+                if post.sender==username
+                  .bubble.me You: #{post.message}
+                    br
+                    p.chatime #{post.timestamp}
+                  br
+                  br
+                  br
+                else 
+                  .bubble.you #{post.message} 
+                    br
+                    p.chatime #{post.timestamp}
+                  br
+                  br
+                  br              
+        .write
+          form#send-container.form-inline(sytle="align-items:center;text-align:center" onsubmit="return sendMessage(event);")
+            input#message-input.form-control(type="text" onfocus="this.value=''" size="110" required="")
+            button#send-button(type="submit") Send
+          .matextarea(style="display:none")
+            .nemin
+              .textar
+                textarea(placeholder="Start typing here...")
+            .new-icmn
+              .iconcommon
+                .sendbtn
+                  i.sendbtn-ok
+                .icon1
+                  p.smile.tooltip2
+                    span.tooltiptext2 Emoji
+          // Closed conversation div
+          .closedbox(style="display:none")
+            | This conversation has been been closed.
+        // Modal 1
+        #myModal.modal
+          // Modal content
+          .modal-content
+            .pophed Share Vespa.chat with your friends :)
+            span.close ×
+            .clr
+            .grdbg
+              p.t_center
+                img(src="static/img/Vespa.chat.svg" alt="Logo")
+              p.inrtxt_v1
+                | Hi, how are you?? Where are you from?? Just heard your songs, I am really impressed
+                | with your voice.
+            .clr
+            .socilapnl.t_center
+              a.icn-wht
+              a.icn-fbk
+              a.icn-twi
+              a.icn-ins
+        // Modal 2
+        #myModal2.modal
+          // Modal content
+          .modal-content2
+            .pophed Chat Privately
+            span.close2 ×
+            .clr
+            .pmntBnr
+              .inrtxt
+                span.pyicn
+                span.pytext
+                  | $ 3/week
+                  br
+                  | Start private chat with users
+            .clr
+            a.chngbtn Pay Now
+    

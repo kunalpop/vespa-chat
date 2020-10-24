@@ -1,0 +1,50 @@
+meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+title Sign Up
+meta(name='viewport', content='width=device-width,initial-scale=1')
+link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap', rel='stylesheet')
+link(rel='stylesheet', href='/static/css/home-style.css', type='text/css')
+.header
+  .inr_container
+    .logosec
+      img(src='/static/img/logo.svg', alt='Logo')
+      |  
+      img(src='/static/img/Vespa.chat.svg', alt='Logo')
+    .fltr.dis-n
+      a.toptxt.current(href='login')
+        | Login
+        span  
+      a.toptxt(href='signup') Sign Up
+.wrap_btm
+  .clip
+  .clip2
+  .clip3
+  .clip4
+  .clip5
+  .clip6
+  .clip7
+  .clip8
+  .inr_main.t_center
+    p.maintxt LOGIN
+    p.maintxt.mgt14.dis-n Vespa.chat allows you to chat anonymously with your friends!
+    .loginbx
+     form(name="loginForm" action="/login" method="POST" autocomplete="on")
+      .frmcol
+        .wid40.fltl.t_left
+          span.logttl Username
+        .wid60.fltr
+          input.inptbx(type='text', placeholder='Enter Username' name="unm")
+      .frmcol
+        .wid40.fltl.t_left
+          span.logttl Password
+        .wid60.fltr
+          input.inptbx2(type='password', placeholder='Enter Password' name="pwd")
+      label.lblchk
+        input.chkbx(type='checkbox', checked)
+        |  Remember me
+      .clr
+        button(style="display:inline-block;width: 124px;height: 48px;background: #FFFFFF;box-shadow: 0px 0px 5px rgba(115, 115, 115, 0.25);border-radius: 50px;font-weight: 500;font-size: 16px;line-height: 48px;color:#6E79FE;text-decoration:none" type="submit") Login
+      .clr
+  each message in messages
+    p.errtxt #{message}
+.footer.t_center
+  p.ftrtxt2 Â© 2020 Vespa.chat | All rights reserved
